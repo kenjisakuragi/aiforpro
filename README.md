@@ -11,6 +11,7 @@
 ├── CLAUDE.md                       # プロジェクト方針（Claude Code 起動時に必読）
 ├── phase1_proposal/                # 提案・営業フェーズの成果物
 │   ├── hearing_sheets/             # 業務棚卸しヒアリングシート（税理士／弁護士）
+│   ├── proposals/                  # 業種別 提案書テンプレート（PPT構成案＋本文）
 │   ├── roi/                        # ROI試算モデル（Python + CSV）
 │   └── differentiation_table.md    # 競合差別化比較表
 ├── phase2_analysis/                # 業務分析フェーズの成果物

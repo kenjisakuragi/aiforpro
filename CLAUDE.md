@@ -68,12 +68,18 @@
 
 ```
 タスク例：
-- [ ] 業種別「業務棚卸しヒアリングシート」の生成
-- [ ] 「自動化余地スコアリングシート」の生成（Excelまたはスプレッドシート形式）
-- [ ] 税理士事務所向け提案書（PPT構成案＋本文）の生成
-- [ ] 弁護士事務所向け提案書（PPT構成案＋本文）の生成
-- [ ] ROI試算モデルの生成（削減時間×時給→年間削減コスト→成果報酬額）
-- [ ] 競合サービスとの差別化比較表の生成
+- [x] 業種別「業務棚卸しヒアリングシート」の生成
+      → phase1_proposal/hearing_sheets/{tax_office,law_office}_hearing.md
+- [x] 「自動化余地スコアリングシート」の生成（Excelまたはスプレッドシート形式）
+      → phase2_analysis/automation_scoring_template.csv
+- [x] 税理士事務所向け提案書（PPT構成案＋本文）の生成
+      → phase1_proposal/proposals/tax_office_proposal.md
+- [x] 弁護士事務所向け提案書（PPT構成案＋本文）の生成
+      → phase1_proposal/proposals/law_office_proposal.md
+- [x] ROI試算モデルの生成（削減時間×時給→年間削減コスト→成果報酬額）
+      → phase1_proposal/roi/roi_calculator.py + roi_input_template.csv
+- [x] 競合サービスとの差別化比較表の生成
+      → phase1_proposal/differentiation_table.md
 ```
 
 ### Phase 2：業務分析フェーズ

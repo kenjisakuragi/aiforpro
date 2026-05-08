@@ -5,6 +5,13 @@
 | `tax_office_proposal.md` | 税理士事務所向け 業務効率化提案書（15スライド構成） |
 | `law_office_proposal.md` | 弁護士事務所向け 業務効率化提案書（15スライド構成） |
 
+## 完成版デモ
+
+実際のペルソナで全数値を埋め切り、Marp 形式でスライド化した実例：
+- `demo/tax_office_slides.md` ── 神田税理士事務所（仮）／15スライド
+- `demo/law_office_slides.md` ── 丸の内総合法律事務所（仮）／15スライド
+- 出力方法・架空ペルソナの設定は [demo/README.md](./demo/README.md) を参照
+
 ## 構成方針
 
 - H2見出し（`## Slide N`）が1スライドに対応

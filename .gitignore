@@ -23,3 +23,8 @@ data/local/
 .env
 .env.*
 !.env.example
+
+# Marp ビルド成果物（規定により再生成可。元の .md のみコミット）
+phase1_proposal/proposals/demo/*.html
+phase1_proposal/proposals/demo/*.pdf
+phase1_proposal/proposals/demo/*.pptx

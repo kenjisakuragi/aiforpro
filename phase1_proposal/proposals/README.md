@@ -12,6 +12,13 @@
 - `demo/law_office_slides.md` ── 丸の内総合法律事務所（仮）／15スライド
 - 出力方法・架空ペルソナの設定は [demo/README.md](./demo/README.md) を参照
 
+## 実在事務所向け 打診版
+
+知人経由の初回打診用（ヒアリング前）スライド：
+- `outreach/daikanyama_intro.md` ── 代官山綜合法律事務所 様／10スライド
+- `outreach/hillford_intro.md` ── ヒルフォード法律事務所 様／10スライド
+- 利益相反チェック・公開情報ソース・差替えガイドは [outreach/README.md](./outreach/README.md) を参照
+
 ## 構成方針
 
 - H2見出し（`## Slide N`）が1スライドに対応

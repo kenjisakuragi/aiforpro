@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI導入KPIダッシュボード（テンプレート）</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --good: #4ade80;
+    --warn: #fbbf24;
+    --bad: #f87171;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 16px;
+  }
+  header h1 { margin: 0; font-size: 22px; }
+  header .meta { color: var(--muted); font-size: 14px; }
+  main { padding: 24px 32px; }
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-bottom: 32px;
+  }
+  .kpi {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .kpi .label { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+  .kpi .value { font-size: 28px; font-weight: 700; letter-spacing: 0.02em; }
+  .kpi .delta { font-size: 13px; margin-top: 4px; }
+  .delta.good { color: var(--good); }
+  .delta.warn { color: var(--warn); }
+  .delta.bad { color: var(--bad); }
+  section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  section h2 { margin: 0 0 12px; font-size: 17px; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .bar {
+    background: #0b1220;
+    height: 8px; border-radius: 4px; overflow: hidden;
+  }
+  .bar > span {
+    display: block; height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--good));
+  }
+  footer {
+    padding: 16px 32px 32px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .pill {
+    display: inline-block; padding: 2px 8px; border-radius: 999px;
+    font-size: 12px; background: #0b1220; border: 1px solid var(--border);
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>AI導入KPIダッシュボード <span class="pill">テンプレート</span></h1>
+  <div class="meta">
+    クライアント: <strong>{{ CLIENT_NAME }}</strong> ／
+    対象月: <strong>{{ REPORT_MONTH }}</strong> ／
+    PoC開始: <strong>{{ POC_START }}</strong>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+    <div class="kpi">
+      <div class="label">月間削減時間</div>
+      <div class="value">{{ SAVED_HOURS }} 時間</div>
+      <div class="delta good">前月比 {{ SAVED_HOURS_DELTA }}</div>
+    </div>
+    <div class="kpi">
+      <div class="label">月間削減コスト</div>
+      <div class="value">¥{{ SAVED_COST }}</div>
+      <div class="delta good">目標達成率 {{ SAVED_COST_RATIO }}%</div>
+    </div>
+    <div class="kpi">
+      <div class="label">対象業務数</div>
+      <div class="value">{{ TASK_COUNT }}</div>
+      <div class="delta">運用中 / 試験中</div>
+    </div>
+    <div class="kpi">
+      <div class="label">成果報酬（当月）</div>
+      <div class="value">¥{{ MONTHLY_FEE }}</div>
+      <div class="delta">削減コストの {{ FEE_RATE }}%</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>業務別 削減実績</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>業務名</th>
+          <th class="num">導入前 (h/月)</th>
+          <th class="num">導入後 (h/月)</th>
+          <th class="num">削減率</th>
+          <th>進捗</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 行は1業務につき1行ずつ複製。{{ }} はレポート生成スクリプトで置換する想定 -->
+        <tr>
+          <td>{{ TASK_NAME_1 }}</td>
+          <td class="num">{{ BEFORE_1 }}</td>
+          <td class="num">{{ AFTER_1 }}</td>
+          <td class="num">{{ REDUCTION_PCT_1 }}%</td>
+          <td><div class="bar"><span style="width: {{ REDUCTION_PCT_1 }}%"></span></div></td>
+        </tr>
+        <tr>
+          <td>{{ TASK_NAME_2 }}</td>
+          <td class="num">{{ BEFORE_2 }}</td>
+          <td class="num">{{ AFTER_2 }}</td>
+          <td class="num">{{ REDUCTION_PCT_2 }}%</td>
+          <td><div class="bar"><span style="width: {{ REDUCTION_PCT_2 }}%"></span></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>今月のハイライト</h2>
+    <ul>
+      <li>{{ HIGHLIGHT_1 }}</li>
+      <li>{{ HIGHLIGHT_2 }}</li>
+      <li>{{ HIGHLIGHT_3 }}</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>来月のアクション</h2>
+    <ul>
+      <li>{{ NEXT_ACTION_1 }}</li>
+      <li>{{ NEXT_ACTION_2 }}</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  ※本ダッシュボードはAI導入の効果測定用です。記載数値は事務所からのヒアリング・自動計測ログに基づきます。<br>
+  AIによる成果物は士業有資格者の確認後にクライアントへ提供されています（詳細は別添「AI生成物の取扱合意書」を参照）。
+</footer>
+</body>
+</html>

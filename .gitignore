@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local data — 顧問先・依頼者の実データを誤コミットしない
+input/
+output/
+data/local/
+*.local.csv
+*.local.xlsx
+*.local.pdf
+
+# 環境変数
+.env
+.env.*
+!.env.example

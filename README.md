@@ -25,6 +25,42 @@
     └── disclaimers.md              # AI生成物への注記文言
 ```
 
+## スマホから成果物を見る（GitHub Pages）
+
+`main` または `claude/**` ブランチへの push を契機に、Marp スライド・KPIダッシュボードを自動でビルドし、GitHub Pages へ公開する Actions が組み込まれています。
+
+公開URL（初回デプロイ後）：
+```
+https://kenjisakuragi.github.io/aiforpro/
+```
+
+### 初回セットアップ（1回だけ）
+
+リポジトリオーナーが GitHub 上で以下を実施：
+
+1. **Settings → Pages** を開く
+2. **Build and deployment > Source** を `GitHub Actions` に変更
+3. このリポジトリの最新 push に対する **Actions タブ → "Build & Deploy slides to GitHub Pages"** が成功するのを待つ
+4. 上記URLで成果物が閲覧できる
+
+### ローカルで同じ出力を確認
+
+```bash
+bash scripts/build-pages.sh dist
+open dist/index.html  # macOS の場合
+```
+
+### 公開対象
+
+| パス | 内容 |
+|---|---|
+| `/` | スマホ向けランディング（slide一覧） |
+| `/outreach/daikanyama.html` | 代官山綜合法律事務所 様 打診版 |
+| `/outreach/hillford.html` | ヒルフォード法律事務所 様 打診版 |
+| `/demo/tax_office.html` | 税理士事務所向けデモ |
+| `/demo/law_office.html` | 弁護士事務所向けデモ |
+| `/dashboard/` | KPIダッシュボードテンプレート |
+
 ## 進め方（Claude Codeセッション開始時）
 
 1. `CLAUDE.md` の「優先タスクの進め方」に従い、本日のPhaseとタスクを確認する
